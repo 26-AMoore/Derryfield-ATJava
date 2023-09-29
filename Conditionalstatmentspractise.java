@@ -11,5 +11,15 @@ public class Conditionalstatmentspractise {
             System.out.println("were sorry, you do not qualify for this discound"); //conditional
         }
         System.out.println("what would you like to buy? "); //not conditional
+
+        double dollars;
+        System.out.println("how much money you got?");
+        scan = new Scanner(System.in);
+        dollars = scan.nextInt();
+        if (dollars >= 100){
+            System.out.println("wow, you are tich");
+            System.out.println("how did you save so much?");
+        }
+        System.out.println("goodbye");
     }
 }
