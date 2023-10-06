@@ -29,5 +29,6 @@ public class SpecificHeatCalc {
         //To find Q
         double Q = (Math.abs(WT - T2)*4.184*WM);
         System.out.println("SH = "+Q /(Math.abs(T1-T2) * M));
+        System.out.println("Q is "+Q);
 
 }}
