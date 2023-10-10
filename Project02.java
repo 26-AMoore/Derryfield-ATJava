@@ -9,13 +9,16 @@ public class Project02 {
         int minutes;
         int hours;
 
+        //input
         System.out.printf("How much time is there in seconds? ");
         scan = new Scanner(System.in);
         ttime = scan.nextInt();
-        seconds = ttime % 60;
-        minutes = ttime / 60 % 60;
-        hours = ttime / 60 / 60;
-        System.out.printf("%02S:%02S:%02S", hours, minutes, seconds);
+
+        //maths
+        hours = ((ttime / 60) / 60);
+        minutes = ((ttime / 60) % 60); 
+        seconds = (ttime % 60);
+        System.out.printf("%02d:%02d:%02d%n", hours, minutes, seconds);
 
     }
 }
