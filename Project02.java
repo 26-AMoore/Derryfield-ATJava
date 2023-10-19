@@ -15,7 +15,7 @@ public class Project02 {
         seconds = ttime % 60;
         minutes = ttime / 60 % 60;
         hours = ttime / 60 / 60;
-        System.out.printf("%02S:%02S:%02S", hours, minutes, seconds);
+        System.out.printf("%02d:%02d:%02d%n", hours, minutes, seconds); //Fixed format specifier
 
     }
 }

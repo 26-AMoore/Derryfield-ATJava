@@ -5,7 +5,7 @@ public class monogramMachine {
 
         System.out.printf("What is your first name? ");
         Scanner scan = new Scanner(System.in);
-         String firstName = scan.next();
+        String firstName = scan.next();
         System.out.printf("What is your middle name? ");
         Scanner scan1 = new Scanner(System.in);
         String middleName = scan1.next();

@@ -14,11 +14,11 @@ public class BetterCougarBakeing {
     public static void main(String[] args){
         final double cookiePrice = 0.99; //defining variables
         Scanner scan;
-        int cookies;
+        double cookies;
         double discount;
-        int totalcost;
+        double totalcost;
 
-        System.out.println("How many pies would you like? Rember that you get a discount based off how many you buy: ");
+        System.out.println("How many Cookies would you like? Rember that you get a discount based off how many you buy: ");
         scan = new Scanner(System.in);
         cookies = scan.nextInt();
         if (cookies > 24) {
@@ -26,13 +26,12 @@ public class BetterCougarBakeing {
         } else if (cookies > 12){
             discount = 0.05;
         } else if (cookies > 6){
-            discount = 0.25;
+            discount = 0.025;
         } else {
             discount = 1;
         }
-        totalcost = (int)(cookies * cookiePrice * (1 - discount)*100);
-        System.out.println(totalcost);
-        System.out.println("Your total is: " + (double)totalcost/100);
+        totalcost = (cookies * cookiePrice * (1 - discount)*100);
+        System.out.println("Your total is: " + (int)totalcost/100);
 
 
     }
