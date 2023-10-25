@@ -1,3 +1,4 @@
+package OtherTestsandStuff;
 
 public class SwitchDemoFallThrough {
 

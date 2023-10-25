@@ -75,7 +75,7 @@ public class NumeralTranslator {
             case 7 -> "LXX";
             case 8 -> "LXXX";
             case 9 -> "LC";
-            case 0 -> "LC";
+            case 0 -> "";
 
             default -> "no";
         };
