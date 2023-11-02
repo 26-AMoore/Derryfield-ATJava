@@ -4,7 +4,7 @@ public class forlooptest {
             System.out.println(i);
         }
         String name = "Paul";
-        for (int i = 0; i < name.length(); i++){
+            for (int i = 0; i < name.length(); i++){
             System.out.println(name.charAt(i));
         }
     }
