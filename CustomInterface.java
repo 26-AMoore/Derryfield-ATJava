@@ -1,3 +1,19 @@
+
+public class CustomInterface {
+	public static void main(String[] args) {
+
+		Dog Marly = new Dog();
+		Marly.setname("Marly");
+		Marly.setbreed("Tibetian Terrier");
+
+		Marly.pet();
+		Marly.play();
+		Marly.sleep();
+		System.out.println(Marly.name+" "+Marly.breed);
+		
+	}
+}
+
 interface animal {
 	public void setbreed(String dogbreed);
 	public void setname(String dogname);
@@ -41,18 +57,4 @@ class Dog implements animal {
 		happieness = happieness / 2;
 	}
 	
-}
-
-public class CustomInterface {
-	public static void main(String[] args) {
-
-		Dog Marly = new Dog();
-		Marly.setname("Marly");
-		Marly.setbreed("Tibetian Terrier");
-
-		Marly.pet();
-		Marly.play();
-		Marly.sleep();
-		
-	}
 }
