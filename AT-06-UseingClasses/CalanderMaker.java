@@ -1,7 +1,7 @@
 import java.time.LocalDate;
 import java.time.DayOfWeek;
 
-public class CalenderMaker {
+public class CalanderMaker {
 
 	public static void main(String[] args) {
 		LocalDate rightNow = LocalDate.now();
@@ -49,7 +49,7 @@ public class CalenderMaker {
 						System.out.printf("%-4d", today);
 						today++;
 						columNum++;
-					} else if (columNum > 7) {
+					} if (columNum > 7) {
 						columNum = 0;
 						rowNum++;
 						System.out.println("");

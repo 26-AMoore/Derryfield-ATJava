@@ -1,10 +1,12 @@
 public class DiceRolling {
 	static enum dienum {ONE, TWO, THREE, FOUR, FIVE, SIX}
 	static dienum rolledNum;
-	static double whatWasRolled;
     public static void main(String[] args){
+
 		dice.roll();
+
 		System.out.println(rolledNum);
+
 		if (rolledNum == dienum.ONE){
 		System.out.printf("   %n * %n   %n");
 		}
@@ -27,9 +29,13 @@ public class DiceRolling {
 
 
 	class dice {
+
 	    public static dienum roll(){
+
+			double whatWasRolled;
 	        System.out.println("Rolling the die");
 			whatWasRolled = Math.random();		
+
 			if (whatWasRolled <= .16666666666){
 			rolledNum = dienum.ONE;
 			} else if (whatWasRolled <= .333333333){
@@ -42,7 +48,8 @@ public class DiceRolling {
 			rolledNum = dienum.FIVE;
 			} else if (whatWasRolled <= 1) {
 			rolledNum = dienum.SIX;
-			}  
+			}
+
 			return(rolledNum);
 		}
 	}
