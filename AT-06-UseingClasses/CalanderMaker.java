@@ -2,7 +2,6 @@ import java.time.LocalDate;
 import java.time.DayOfWeek;
 
 public class CalanderMaker {
-
 	public static void main(String[] args) {
 		LocalDate rightNow = LocalDate.now();
 		int today = rightNow.getDayOfMonth();
@@ -11,6 +10,8 @@ public class CalanderMaker {
 		int rowNum = 1;
 		int columNum = 1;
 		int lastDay = rightNow.lengthOfMonth();
+
+		System.out.println(rightNow+" "+ today+" "+ date);
 
 		DayOfWeek firstDay = date.getDayOfWeek();
 
@@ -49,7 +50,7 @@ public class CalanderMaker {
 						System.out.printf("%-4d", today);
 						today++;
 						columNum++;
-					} if (columNum > 7) {
+					} else if (columNum > 7) {
 						columNum = 0;
 						rowNum++;
 						System.out.println("");
