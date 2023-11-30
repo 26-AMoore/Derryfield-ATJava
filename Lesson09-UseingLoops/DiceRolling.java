@@ -1,3 +1,4 @@
+
 public class DiceRolling {
 	static enum dienum {ONE, TWO, THREE, FOUR, FIVE, SIX}
 	static dienum rolledNum;
