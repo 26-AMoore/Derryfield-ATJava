@@ -8,7 +8,7 @@ public class Part2 {
 		int total = 0;
 		System.out.println("What is the postal code?");
 
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 1; i++) {
 			digits[i] = in.next().charAt(i);
 			total += digits[i];
 		}
@@ -33,6 +33,6 @@ public class Part2 {
 			case 0 -> "||:::";
 			default -> "XXXXX";
 			};
-			return encodeded;
-		}
+		return encodeded;
+	}
 }
