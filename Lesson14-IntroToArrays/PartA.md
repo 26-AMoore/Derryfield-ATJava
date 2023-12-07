@@ -1,0 +1,22 @@
+Part A:
+1. Given the declaration below, what is the value of array[3]?
+
+int[] array = {4, 3, 5, 2, 0};
+
+b) 2
+
+2. Given the declaration below, which of the following statements would cause a run-time error?
+
+int[] array = {4, 3, 5, 2, 0};
+
+c) array[5] = 1;
+
+3. Consider the following code segment. What is the value of b[2] after the code executes?
+
+int[] a = { 0, 1, 2, 3, 4 };
+int[] b = { 0, 1, 4, 9 };
+a = b;
+b = a;
+
+c) 4
+
