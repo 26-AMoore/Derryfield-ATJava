@@ -7,15 +7,20 @@ public class Part2 {
 		String end ="|";
 		int total = 0;
 		System.out.println("What is the postal code?");
+		int toParse = in.nextInt();
+		digits[0] = toParse % 10;
+		digits[1] = toParse % 100 / 10;
+		digits[2] = toParse % 1000 / 100;
+		digits[3] = toParse % 10000 / 1000;
+		digits[4] = toParse % 100000 / 10000;
 
-		for (int i = 0; i < 1; i++) {
-			digits[i] = in.next().charAt(i);
+		for (int i = 0; i < 5; i++) {
 			total += digits[i];
 		}
 		for (int i = 0; i < digits.length; i++) {
 			end = end + encode(digits[i]);
-			System.out.println(end+encode(total%10)+"|");
 		}
+		System.out.println(end+encode(total%10)+"|");
 	}
 
 	public static String encode(int input) {
