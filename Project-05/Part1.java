@@ -6,7 +6,7 @@ public class Part1 {
 		String second;
 		boolean found = false;
 		boolean isEqual = false;
-		String largerSection = "yeeeHaw";
+		String smallerOne = "yeeeHaw";
 		Scanner in = new Scanner(System.in);
 		String firstPart;
 		String secondPart;
@@ -24,10 +24,10 @@ public class Part1 {
 				break;
 			}
 			if (firstNum(firstPart) > firstNum(secondPart)) {
-				largerSection = first;
+				smallerOne = second;
 				found = true;
 			} else if (firstNum(secondPart) > firstNum(firstPart)) {
-				largerSection = second;
+				smallerOne = first;
 				found = true;
 			} else {
 				firstPart = getNext(firstPart);
@@ -35,7 +35,7 @@ public class Part1 {
 			}
 		}
 		if (!isEqual) {
-			System.out.println("The largest section is "+ largerSection);
+			System.out.println("The first section is "+ smallerOne);
 		}
 	}
 	public static int firstNum(String sec1) {

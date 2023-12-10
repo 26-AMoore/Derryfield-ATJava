@@ -8,11 +8,11 @@ public class Part2 {
 		int total = 0;
 		System.out.println("What is the postal code?");
 		int toParse = in.nextInt();
-		digits[0] = toParse % 10;
-		digits[1] = toParse % 100 / 10;
+		digits[4] = toParse % 10;
+		digits[3] = toParse % 100 / 10;
 		digits[2] = toParse % 1000 / 100;
-		digits[3] = toParse % 10000 / 1000;
-		digits[4] = toParse % 100000 / 10000;
+		digits[1] = toParse % 10000 / 1000;
+		digits[0] = toParse % 100000 / 10000;
 
 		for (int i = 0; i < 5; i++) {
 			total += digits[i];
