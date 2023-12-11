@@ -20,7 +20,7 @@ public class Part2 {
 		for (int i = 0; i < digits.length; i++) {
 			end = end + encode(digits[i]);
 		}
-		System.out.println(end+encode(total%10)+"|");
+		System.out.println(end+encode(Math.abs(total%10))+"|");
 	}
 
 	public static String encode(int input) {
