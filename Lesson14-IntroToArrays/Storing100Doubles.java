@@ -25,7 +25,7 @@ public class Storing100Doubles {
 		for (int i = 0; i < prev.length; i++) {
 			end[i] = prev[i];
 		}
-		end[prev.length] = add;
+		end[end.length] = add;
 		return end;
 	}
 }
