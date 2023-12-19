@@ -28,8 +28,13 @@ public class PartA {
 		System.out.println("");
 
 		Arrays.sort(array);
-		for (int i = array.length - 1; i > 10 - count; i--) {
-			System.out.printf("%d,",array[i]);
+		for (int i = array.length - 1; i > 9 - count; i--) {
+			if (i != 9 - count + 1) {
+				System.out.printf("%d,", array[i]);
+			} else {
+				System.out.printf("%d", array[i]);
+			}
 		}
+		System.out.println("");
 	}
 }
