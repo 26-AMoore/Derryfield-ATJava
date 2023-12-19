@@ -1,20 +1,36 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class PartA {
 	public static void main(String[] args) {
 		int[] array = new int[10];
 		Scanner in = new Scanner(System.in);
-		for (int i = 0; i < array.length; i++) {
-			System.out.print("What number would you like to add?");
+		boolean isTakingInput = true;
+		String helper;
+		int count = 0;
 
-			if (in.next() != "q" && in.next() != "Q") {
-				array[i] = in.nextInt();
+		do {
+			System.out.print("What number would you like to add, or Q to quit: ");
+			helper = in.next();
+			if (helper.equals("q") || helper.equals("Q")) {
+				isTakingInput = false;
+				break;
+			} else {
+				if (count < array.length) {
+					array[count] = Integer.valueOf(helper);
+					count++;
+				}
 			}
+		} while (isTakingInput && count < array.length);
+		for (int i = 0; i < count; i++) {
+			System.out.printf("*%d", array[i]);
+		} System.out.print("*");
+		System.out.println("");
+
+		Arrays.sort(array);
+		for (int i = array.length - 1; i > count; i--) {
+			System.out.printf("%d,",array[i]);
 		}
-		for (int i : array) {
-			System.out.println(array[i]);
-		}
-		
 	}
 }
 //take 10 inputs or Q to quit, print 1*4*2*4*0*2 THEN sort and print 0, 1, 2, 2, 4, 4
