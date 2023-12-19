@@ -28,9 +28,8 @@ public class PartA {
 		System.out.println("");
 
 		Arrays.sort(array);
-		for (int i = array.length - 1; i > count; i--) {
+		for (int i = array.length - 1; i > 10 - count; i--) {
 			System.out.printf("%d,",array[i]);
 		}
 	}
 }
-//take 10 inputs or Q to quit, print 1*4*2*4*0*2 THEN sort and print 0, 1, 2, 2, 4, 4
