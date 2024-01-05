@@ -28,6 +28,7 @@ public class PartA {
 		System.out.println("");
 
 		Arrays.sort(array);
+		//"readable"
 		for (int i = array.length - 1; i > 9 - count; i--) {
 			if (i != 9 - count + 1) {
 				System.out.printf("%d,", array[i]);
