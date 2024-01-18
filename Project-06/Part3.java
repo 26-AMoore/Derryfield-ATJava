@@ -11,7 +11,7 @@ public class Part3 {
 		int player = 0;
 		int winner = 0;
 		boolean inputting = true;
-		String helper;
+		String helper = "null";
 		int otherHelper;
 		boolean flipptyflop = true;
 		int turns = 0;
@@ -38,7 +38,14 @@ public class Part3 {
 				helping = false;
 			}
 			do {
-				helper = in.next();
+				if (turns == size * size) {
+					inputting = false;
+					playing = false;
+					winner = 3;
+				}
+				if (playing) {
+					helper = in.next();
+				}
 				if (helper.equals("help")) {
 					helping = true;
 				} else if (Integer.valueOf(helper) <= size * size && Integer.valueOf(helper) >= 1) {
@@ -63,11 +70,6 @@ public class Part3 {
 					}
 				} else {
 					System.out.println("Input is not valid, please try again");
-				}
-				if (turns == size * size) {
-					inputting = false;
-					playing = false;
-					winner = 3;
 				}
 
 			} while (inputting);
