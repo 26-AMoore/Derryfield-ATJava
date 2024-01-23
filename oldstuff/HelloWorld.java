@@ -1,0 +1,1 @@
+import java.util.Scanner;public class HelloWorld{public static void main(String[]args){String name;Scanner scan;System.out.println("What is your name? ");scan=new Scanner(System.in);name=scan.next();System.out.println("hello "+name+" how are you?");}}
