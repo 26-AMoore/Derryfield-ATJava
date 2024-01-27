@@ -1,5 +1,5 @@
 # Compiled class file
-*.class
+#*.class
 
 # Log file
 *.log
@@ -25,4 +25,3 @@ replay_pid*
 
 # for MacOS
 .DS_Store
-vimpractice.md
