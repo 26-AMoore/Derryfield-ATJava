@@ -2,15 +2,16 @@ import java.util.Scanner;
 
 public class Part1 {
 	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		System.out.println("What is your age?");
+		int age = in.nextInt();
 	}
 
-	public static int GetQuizScores(Scanner in) {
-		int num = 0;
-		try {
-			num = Integer.valueOf(in.nextInt());
-			return num;
-		} catch (ArithmeticException e) {
-			System.err.println(e.getMessage());
+	public static int GetQuizScores(int age) {
+		if (age >= 1) {
+			return age;
+		} else {
+			ArithmeticException e = new ArithmeticException();
 			throw e;
 		}
 	}
