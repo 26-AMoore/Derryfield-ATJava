@@ -1,4 +1,5 @@
-class Yard {
+package mow;
+public class Yard {
 	private char[][] yard;
 	public Yard(int i, int j) {
 		yard = new char[i + 2][j + 2];
