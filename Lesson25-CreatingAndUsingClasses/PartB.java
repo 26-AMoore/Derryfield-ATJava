@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class PartB {
@@ -7,12 +8,13 @@ public class PartB {
 		CashRegister cr = new CashRegister();
 		boolean cashingRegisters = true;
 		do {
-			System.out.println("Add a price, or use t to show totals, c to clear, and q to quit");
+			System.out.println("Add a price, or use t to show totals, c to clear, d to remove the last added item, and q to quit");
 			helper = in.next();
 			switch (helper.charAt(0)) {
-				case 't' -> System.out.println("Total = " + cr.getTotal() + " Count = " + cr.getCount());
+				case 't' -> System.out.println("Total = " + cr.getTotal() + " Count = " + cr.getCount() + " Items: " + cr.show());
 				case 'c' -> cr.clear();
 				case 'q' -> cashingRegisters = false;
+				case 'r' -> cr.delete();
 				default -> cr.addItem(Double.valueOf(helper));
 			}
 		} while (cashingRegisters);
@@ -21,18 +23,17 @@ public class PartB {
 
 class CashRegister {
 	private double totalPrice;
-	private int itemCount;
+	private ArrayList<Double> list = new ArrayList<Double>();
 
 	public CashRegister() {
 		totalPrice = 0;
-		itemCount = 0;
 	}
 	/*
 	* Add the price of an item to the register's total.
     */
 	public void addItem(double price) {
 		totalPrice = totalPrice + price;
-		itemCount++;
+		list.add(price);
 	}
 	/*
 	* Return the current total sales amount.
@@ -41,19 +42,25 @@ class CashRegister {
 		return totalPrice;
 	}
 
+	public String show() {
+		return list.toString();
+	}
 
+	public void delete() {
+		list.remove(list.size()-1);
+	}
 	/*
 	* Return the total count of items in the current sale.
 	*/
 	public int getCount() {
-		return itemCount;
+		return list.size();
 	}
 	/*
 	* Clear the register (total and count) for a new sale.
 	*/
 	public void clear() {
 		totalPrice = 0;
-		itemCount = 0;
+		list.clear();
 	}
 }
 
