@@ -1,17 +1,16 @@
 package mow;
-import mow.Yard;
-
 public class Mower {
+	public boolean finished = false;
 	private int x;
 	private int y;
-	private enum DIRECTION {NORTH, EAST, SOUTH, WEST};
-	private DIRECTION facing;
+	public enum DIRECTION {NORTH, EAST, SOUTH, WEST};
+	private DIRECTION facing = DIRECTION.NORTH;
 
 	public Mower(int X, int Y, DIRECTION dir) {
 		DIRECTION facing = dir;
 		int x = X;
 		int y = Y;
-	} Mower() {int x = 0; int y = 0; DIRECTION facing = DIRECTION.NORTH;}
+	} public Mower() {int x = 0; int y = 0; DIRECTION facing = DIRECTION.NORTH;}
 
 	public DIRECTION getDirection() {
 		return facing;
@@ -32,8 +31,8 @@ public class Mower {
 	public char getInfront(Yard yard) {
 		char infront;
 		int frontY = switch (facing) {
-			case NORTH -> y+1;
-			case SOUTH -> y-1;
+			case NORTH -> y-1;
+			case SOUTH -> y+1;
 			default -> y;
 		};
 		int frontX = switch (facing) {
@@ -60,12 +59,39 @@ public class Mower {
 			case WEST -> DIRECTION.NORTH;
 		};
 	}
-	public void drive() {
+	public void drive(int distance) {
 		switch (facing) {
-			case NORTH -> y+=1;
-			case SOUTH -> y-=1;
-			case EAST -> x+=1;
-			case WEST -> x-=1;
+			case NORTH -> y+=distance;
+			case SOUTH -> y-=distance;
+			case EAST -> x+=distance;
+			case WEST -> x-=distance;
 		};
+	} public void drive() {
+		int distance = 1;
+		switch (facing) {
+			case NORTH -> y-=distance;
+			case SOUTH -> y+=distance;
+			case EAST -> x+=distance;
+			case WEST -> x-=distance;
+		};
+	}
+
+	private int turns;
+	public void cutSpiral(Yard yard) {
+		yard.mow(this.x, this.y);
+
+		switch (this.getInfront(yard)) {
+			case '+' -> this.drive();
+			case 'R' -> this.turnRight();
+			case ' ' -> this.turnRight();
+		};
+		switch (this.getInfront(yard)) {
+			case ' ' -> turns++;
+			case 'R' -> turns++;
+			case '+' -> turns = 0;
+		};
+		if (turns == 4) {
+			finished = true;
+		}
 	}
 }

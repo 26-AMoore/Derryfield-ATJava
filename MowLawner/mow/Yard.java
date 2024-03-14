@@ -19,10 +19,19 @@ public class Yard {
 		return yard;
 	}
 
-	public void showYard() {
+	public void showYard(Mower mow) {
 		for (int i = 0; i < yard.length; i++) {
 			for (int j = 0; j < yard[i].length; j++) {
-				System.out.print(yard[i][j]);
+				if (mow.getXPos() == j-1 && mow.getYPos() == i-1) {
+					switch (mow.getDirection()) {
+						case NORTH -> System.out.print("^");
+						case EAST -> System.out.print(">");
+						case SOUTH -> System.out.print("v");
+						case WEST -> System.out.print("<");
+					}
+				} else {
+					System.out.print(yard[i][j]);
+				}
 			}
 			System.out.println();
 		}
@@ -37,12 +46,12 @@ public class Yard {
 	}
 
 	public void mow(int x, int y) {
-		if (yard[x][y] != 'R') {
-			yard[x][y] = ' ';
+		if (yard[y + 1][x + 1] != 'R') {
+			yard[y+ 1][x + 1] = ' ';
 		}
 	}
 
 	public char getPos(int x, int y) {
-		return yard[x][y];
+		return yard[y + 1][x + 1];
 	}
 }
