@@ -51,6 +51,10 @@ public class Yard {
 		}
 	}
 
+	public void regrow() {
+		yard = fillYard();
+	}
+
 	public char getPos(int x, int y) {
 		return yard[y + 1][x + 1];
 	}

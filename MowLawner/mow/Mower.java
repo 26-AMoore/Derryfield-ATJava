@@ -77,13 +77,30 @@ public class Mower {
 	}
 
 	private int turns;
-	public void cutSpiral(Yard yard) {
+	public void cutSpiralRight(Yard yard) {
 		yard.mow(this.x, this.y);
 
 		switch (this.getInfront(yard)) {
 			case '+' -> this.drive();
 			case 'R' -> this.turnRight();
 			case ' ' -> this.turnRight();
+		};
+		switch (this.getInfront(yard)) {
+			case ' ' -> turns++;
+			case 'R' -> turns++;
+			case '+' -> turns = 0;
+		};
+		if (turns == 4) {
+			finished = true;
+		}
+	}
+	public void cutSpiralLeft(Yard yard) {
+		yard.mow(this.x, this.y);
+
+		switch (this.getInfront(yard)) {
+			case '+' -> this.drive();
+			case 'R' -> this.turnLeft();
+			case ' ' -> this.turnLeft();
 		};
 		switch (this.getInfront(yard)) {
 			case ' ' -> turns++;

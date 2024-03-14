@@ -11,13 +11,19 @@ public class MowerFinal {
 		randomize(yard, mower);
 		yard.showYard(mower);
 		while (!mower.finished) {
-			try {
-				Thread.sleep(100);
-			} catch (Exception e) {
-				//TODO: absolutly nothing
-			}
-			mower.cutSpiral(yard);
+			mower.cutSpiralRight(yard);
 			yard.showYard(mower);
+			sleep(100);
+			clear();
+		}
+		mower.finished = false;
+		yard.regrow();
+		randomize(yard, mower);
+		while (!mower.finished) {
+			mower.cutSpiralRight(yard);
+			yard.showYard(mower);
+			sleep(100);
+			clear();
 		}
 	}
 
@@ -46,5 +52,18 @@ public class MowerFinal {
 			case 3 -> DIRECTION.WEST;
 			default -> DIRECTION.NORTH;
 		});
+	}
+
+	public static void clear() {
+		System.out.print("\033[H\033[2J");  
+		System.out.flush();
+	}
+
+	public static void sleep(int x) {
+		try {
+			Thread.sleep(x);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 	}
 }
