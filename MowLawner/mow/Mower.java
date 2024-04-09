@@ -111,4 +111,48 @@ public class Mower {
 			finished = true;
 		}
 	}
+
+	private void left(Yard yard) {
+		yard.mow(x, y);
+		this.turnLeft();
+		this.drive();
+		this.turnLeft();
+	}
+	private void right(Yard yard) {
+		yard.mow(x, y);
+		this.turnRight();
+		this.drive();
+		this.turnRight();
+	}
+
+	private int getCorner(Yard yard) {
+		if (x == 0 && y == 0) {
+			return 0;
+		} else if (x == yard.width() - 1 && y == 0) {
+			return 1;
+		} else if (x == 0 && y == yard.height() - 1) {
+			return 2;
+		} else if (x == yard.width() - 1 && y == yard.height() - 1) {
+			return 3;
+		} else {return -1;}
+	}
+
+	public void cutLinear(Yard yard) {
+		boolean lastTurnRigth = false;
+		int corner = getCorner(yard);
+		
+		while (!finished) {
+			if (this.getInfront(yard) == '+') {
+				yard.mow(x, y);
+				this.drive();
+			} else {
+				if (lastTurnRigth) {
+					this.left(yard);
+				} else {
+					this.right(yard);
+				}
+				lastTurnRigth = !lastTurnRigth;
+			}
+		}
+	}
 }

@@ -22,7 +22,7 @@ public class Yard {
 	public void showYard(Mower mow) {
 		for (int i = 0; i < yard.length; i++) {
 			for (int j = 0; j < yard[i].length; j++) {
-				if (mow.getXPos() == j-1 && mow.getYPos() == i-1) {
+				if (mow.getXPos() == j - 1 && mow.getYPos() == i - 1) {
 					switch (mow.getDirection()) {
 						case NORTH -> System.out.print("^");
 						case EAST -> System.out.print(">");

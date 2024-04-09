@@ -10,6 +10,7 @@ public class MowerFinal {
 		Mower mower = new Mower();
 		randomize(yard, mower);
 		yard.showYard(mower);
+		/*
 		while (!mower.finished) {
 			mower.cutSpiralRight(yard);
 			yard.showYard(mower);
@@ -21,6 +22,15 @@ public class MowerFinal {
 		randomize(yard, mower);
 		while (!mower.finished) {
 			mower.cutSpiralRight(yard);
+			yard.showYard(mower);
+			sleep(100);
+			clear();
+		} */
+		mower.finished = false;
+		yard.regrow();
+		randomize(yard, mower);
+		while (!mower.finished) {
+			mower.cutLinear(yard);
 			yard.showYard(mower);
 			sleep(100);
 			clear();
