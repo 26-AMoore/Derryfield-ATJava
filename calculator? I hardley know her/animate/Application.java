@@ -8,25 +8,8 @@ public class Application extends JFrame {
 	private String title = "title";
 	public Application() {
 		int border_width = 0;
-		int bar_height = 0;
+		int bar_height = 28;
 
-		/*
-		String os = System.getProperty(os.name);
-
-        switch (os) {
-            case WIN:
-                border_width = 7;
-                bar_height = 30;
-                break;
-            case MAC:
-                border_width = 0;
-                bar_height = 28;
-                break;
-            case OTHER:
-                break;
-        }
-		*/
-		
 		Board board = new Board();
 		this.setTitle(title);
 		this.add(board);

@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 //idea: make array of entire expression, then pemdas and then write it to that spot in the array
-public class calculator {
+public class Acalculator {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		double x, y = 0;
