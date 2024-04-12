@@ -1,16 +1,16 @@
-
 public class test {
-	public static int X = 60, Y = 30;
-	public static boolean[][] board = new boolean[Y][X];
-	public static int[][] test = new int[Y][X];
-
+	public static boolean[][] board;
+	public static int[][] test;
 	public static void main(String[] args) {
+		int col = Integer.valueOf(args[1]) / 2;
+		board = new boolean[Integer.valueOf(args[2]) - 1][col];
+		test = new int[Integer.valueOf(args[2]) - 1][col];
+
 		fill();
 		while (true) {
-			//mutate();
 			clear();
 			show();
-			eval();
+			eval(Double.valueOf(args[0]));
 			try {
 				Thread.sleep(100);
 			} catch (Exception e) {
@@ -18,10 +18,10 @@ public class test {
 			}
 		}
 	}
-	public static void mutate() {
+	public static void mutate(Integer chance) {
 		for (int i = 0; i < board.length; i++) {
 			for (int j = 0; j < board[i].length; j++) {
-				if (Math.random() < .03) {
+				if (Math.random() < chance/100) {
 					board[i][j] = !board[i][j];
 				}
 			}
@@ -36,7 +36,7 @@ public class test {
 			}
 		}
 	}
-	public static void eval() {
+	public static void eval(double chance) {
 		for (int i = 1; i < board.length - 1; i++) {
 			for (int j = 1; j < board[i].length - 1; j++) {
 				test[i][j] = surrounding(i, j);
@@ -48,6 +48,12 @@ public class test {
 					board[i][j] = true;
 				} else if (test[i][j] == 2 && board[i][j]) {
 					board[i][j] = true;
+				} else if (test[i][j] == 2 && !board[i][j]) {
+					if (chance > 0) {
+						if (Math.random() * chance < 1 / chance) {
+							board[i][j] = true;
+						}
+					}
 				} else {
 					board[i][j] = false;
 				}
@@ -88,9 +94,3 @@ public class test {
 		return count;
 	}
 }
-//
-// <2 die 
-// 2-3 live
-// 3 birth
-// >3 die
-//
