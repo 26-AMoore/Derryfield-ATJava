@@ -30,7 +30,7 @@ public class MowerFinal {
 		yard.regrow();
 		randomize(yard, mower);
 		while (!mower.finished) {
-			mower.cutLinear(yard);
+			mower.cutSpiralRight(yard);
 			yard.showYard(mower);
 			sleep(100);
 			clear();

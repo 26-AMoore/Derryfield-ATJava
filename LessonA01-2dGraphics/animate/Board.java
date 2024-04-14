@@ -34,5 +34,7 @@ public class Board extends JPanel {
 		Shape transformedShape = affineTransform.createTransformedShape(rect);
 
 		g2d.fill(transformedShape);
+		g2d.setColor(Color.BLUE);
+		g2d.drawString("Hello, World!", 50, 50);
 	}
 }

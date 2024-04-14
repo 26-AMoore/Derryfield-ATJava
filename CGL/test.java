@@ -2,6 +2,7 @@ public class test {
 	public static boolean[][] board;
 	public static int[][] test;
 	public static void main(String[] args) {
+		System.out.println(args.toString());
 		int col = Integer.valueOf(args[1]) / 2;
 		board = new boolean[Integer.valueOf(args[2]) - 1][col];
 		test = new int[Integer.valueOf(args[2]) - 1][col];
@@ -12,7 +13,7 @@ public class test {
 			show();
 			eval(Double.valueOf(args[0]));
 			try {
-				Thread.sleep(100);
+				Thread.sleep(150);
 			} catch (Exception e) {
 				System.out.println("nope");
 			}

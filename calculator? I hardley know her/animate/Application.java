@@ -11,7 +11,7 @@ public class Application extends JFrame {
 		int bar_height = 28;
 
 		Board board = new Board();
-		this.setTitle(title);
+		this.setTitle("calc you later");
 		this.add(board);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
@@ -19,5 +19,11 @@ public class Application extends JFrame {
 		int application_height = (int) board.getPreferredSize().getHeight() + bar_height + border_width;
 		int application_width = (int) board.getPreferredSize().getWidth() + 2 * border_width;
 		this.setSize(application_width, application_height);
+
+	}
+	public void resize() {
+		int actualheight = this.getHeight();
+		int actualwidth = this.getWidth();
+		this.setSize(actualwidth, actualheight);
 	}
 }
