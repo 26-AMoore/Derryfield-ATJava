@@ -3,12 +3,12 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 
 public class Application extends JFrame {
-	private final int FRAME_WIDTH = 640;
-	private final int FRAME_HEIGHT = 480;
-	private String title = "title";
+	private final int FRAME_WIDTH = 720;
+	private final int FRAME_HEIGHT = 720;
+	private String title = "andy";
 	public Application() {
 		int border_width = 0;
-		int bar_height = 0;
+		int bar_height = 28;
 
 		/*
 		String os = System.getProperty(os.name);

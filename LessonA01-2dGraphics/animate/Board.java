@@ -22,8 +22,8 @@ public class Board extends JPanel {
 
 		int x_t = B_WIDTH / 2;
 		int y_t = B_HEIGHT / 2;
-		x_t = x_t - SIDE_LEN / 2;
-		y_t = y_t - SIDE_LEN / 2;
+// 		x_t = x_t - SIDE_LEN / 2;
+//		y_t = y_t - SIDE_LEN / 2;
 
 		AffineTransform affineTransform = new AffineTransform();
 		affineTransform.translate(x_t, y_t);
