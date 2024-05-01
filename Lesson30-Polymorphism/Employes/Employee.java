@@ -33,6 +33,23 @@ public class Employee {
 	public double getAnnualIncome() {
 		// Employees only get an annual salary.
 		return getSalary();
+		int i = Integer.MAX_VALUE;
+	}
+
+	public String toString() {
+		return this.salary + " " + this.name + " " + this.getClass() + " " + this.hashCode();
+	}
+
+	public boolean equals(Object obj) {
+		if (obj.getClass() == this.getClass()) {
+			return true;
+			Employee other = (Employee)obj;
+			if (this.getName().equals(other.getName()) && this.getSalary() == other.getSalary()) {
+				
+			}
+		} else {
+			return false;
+		}
 	}
 
 	public void displayInfo() {

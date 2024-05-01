@@ -18,7 +18,7 @@ public class Board extends JPanel {
 	private final int B_HEIGHT = 720;
 	private Timer timer;
 	private final int INITIAL_DELAY = 100;
-	private final int PERIOD_INTERVAL = 3;
+	private final int PERIOD_INTERVAL = 10;
 	private int xSpeed = 3;
 	private int ySpeed = 3;
 	private int rotation = 0;

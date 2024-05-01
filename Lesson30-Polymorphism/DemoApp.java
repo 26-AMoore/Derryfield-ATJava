@@ -47,6 +47,7 @@ public class DemoApp {
 				System.out.print("Enter stocks (as a double): ");
 				double stocks = Double.parseDouble(in.nextLine());
 				Executive executive = new Executive(name, salary, bonus, stocks);
+				employees.add(executive);
 			} else {
 				System.out.println("I don't understand your choice.");
 			}
@@ -65,6 +66,7 @@ public class DemoApp {
 		for (Employee employee : employees) {
 			employee.displayInfo();
 			System.out.println();
+			System.out.println(employee.toString());
 		}
 	}
 }
