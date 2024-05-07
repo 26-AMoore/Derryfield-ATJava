@@ -8,12 +8,13 @@ import java.awt.*;
 public class Board extends JPanel implements KeyListener {
 	private final int B_WIDTH = 1280;
 	private final int B_HEIGHT = 720;
+	private Cannon cannon = new Cannon(15, 640);
 
 	public Board() {
 		setBackground(Color.CYAN);
 		setPreferredSize(new Dimension(B_WIDTH, B_HEIGHT));
-		this.addKeyListener(this);
 		this.setFocusable(true);
+		this.addKeyListener(this);
 	}
 
 	public void paintComponent(Graphics g) {
@@ -30,27 +31,29 @@ public class Board extends JPanel implements KeyListener {
 		rect = new Rectangle(0, B_HEIGHT - 22, B_WIDTH, B_HEIGHT - 25);
 		shape = (Shape)rect;
 		g2d.fill(shape);
+		cannon.draw(g2d);
 	}
 
-	@Override
-	public void keyTyped(KeyEvent e) {
-
-	}
-
-	@Override
 	public void keyPressed(KeyEvent e) {
 
 		int key = e.getKeyCode();
 		switch (key) {
-			case KeyEvent.VK_RIGHT -> System.out.println("RIGHT arrow was pressed");
-			case KeyEvent.VK_LEFT -> System.out.println("LEFT arrow was pressed");
+			case KeyEvent.VK_RIGHT -> cannon.setR(cannon.getR()+1);
+			case KeyEvent.VK_LEFT -> cannon.setR(cannon.getR()-1);
 			case KeyEvent.VK_DOWN -> System.out.println("DOWN arrow was pressed");
 			case KeyEvent.VK_UP -> System.out.println("UP arrow was pressed");
+			case KeyEvent.VK_SPACE -> System.out.println("SPACE");
 		}
+		this.repaint();
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
+
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
 
 	}
 }

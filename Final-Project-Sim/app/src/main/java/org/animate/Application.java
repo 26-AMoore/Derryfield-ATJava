@@ -8,6 +8,7 @@ public class Application extends JFrame {
 		int bar_height = 28;
 
 		Board board = new Board();
+		Cannon cannon = new Cannon(15, 640);
 		this.setTitle(title);
 		this.add(board);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
