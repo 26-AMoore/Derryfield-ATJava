@@ -14,6 +14,8 @@ public class SoundClip {
 	private File audioFile;
 	private AudioInputStream audioIn;
 	private Clip clip;
+	private boolean loop;
+	private boolean stop;
 
 	public SoundClip(String path) {
 		filePath = path;
@@ -45,6 +47,17 @@ public class SoundClip {
 			clip.setFramePosition(0);
 			clip.start();
 		}
+		if (loop) {
+			clip.loop(clip.LOOP_CONTINUOUSLY);
+		}
+	}
+
+	public void setLoop(boolean loop) {
+		this.loop = loop;
+	}
+
+	public boolean getLoop() {
+		return loop;
 	}
 
 	public void play(boolean wait) {
@@ -57,6 +70,14 @@ public class SoundClip {
 				System.err.println(e.getMessage());
 			}
 		}
+	}
+
+	public void stop() {
+		stop = true;
+	}
+
+	public void start() {
+		stop = false;
 	}
 
 

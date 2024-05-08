@@ -12,7 +12,7 @@ import java.io.File;
 import java.net.URL;
 
 public class Board extends JPanel implements KeyListener {
-	private SoundClip noise;
+	private sound.SoundClip noise;
 	private final int SIDE_LEN = 150;
 	private final int B_WIDTH = 350;
 	private final int B_HEIGHT = 350;
@@ -27,6 +27,8 @@ public class Board extends JPanel implements KeyListener {
 		this.setFocusable(true);
 
 		this.addKeyListener(this);
+
+		this.addMouseListener(this);
 	}
 
 	public void paintComponent(Graphics g) {
@@ -36,6 +38,10 @@ public class Board extends JPanel implements KeyListener {
 	@Override
 	public void keyTyped(KeyEvent e) {
 
+	}
+
+	public void mousePressed(KeyEvent e) {
+		noise.play();
 	}
 
 	@Override

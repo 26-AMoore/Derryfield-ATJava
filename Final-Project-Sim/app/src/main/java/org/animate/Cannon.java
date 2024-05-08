@@ -1,10 +1,9 @@
 package org.animate;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -51,6 +50,8 @@ public class Cannon extends JPanel {
 		affineTransform.translate(x, y);
 		affineTransform.rotate(Math.toRadians(r), 15, img.getHeight() / 2);
 		g2d.drawImage(img, affineTransform, null);
+		g2d.setColor(Color.BLACK);
+		g2d.fillOval(x + 15, y + img.getHeight() / 2, 10, 10);
 	}
 
 	public int getX() {
