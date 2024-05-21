@@ -1,10 +1,13 @@
 package org.animate;
 
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import javax.swing.JPanel;
 import java.io.File;
 import javax.imageio.ImageIO;
+import java.awt.Color;
 
 public class Ball extends JPanel implements Projectile {
 	private int x;
@@ -13,6 +16,7 @@ public class Ball extends JPanel implements Projectile {
 	private int vy;
 	private int ax;
 	private int ay;
+	private int grav = 10;
 	private Projectile.STATE state;
 	private BufferedImage img;
 
@@ -27,10 +31,14 @@ public class Ball extends JPanel implements Projectile {
 	}
 
 	public void draw(Graphics g) {
+		Graphics2D g2d = (Graphics2D)g;
+		g2d.setColor(Color.BLACK);
 		if (this.state == Projectile.STATE.FLYING) {
-			g.fillOval(x - 5, y - 5, 10, 10);
+			g2d.fillOval(x - 5, y - 5, 10, 10);
 		} else if (this.state == Projectile.STATE.BOOMED) {
-			g.drawImage(img, x, y, null);
+			AffineTransform afn = new AffineTransform();
+			afn.translate(x-100, 675);
+			g2d.drawImage(img, afn, null);
 		}
 	}
 
@@ -38,7 +46,7 @@ public class Ball extends JPanel implements Projectile {
 		File fire = new File("media/flame01.png");
 		try {
 			img = ImageIO.read(fire);
-			System.out.println("loaded");
+			System.out.println("FIRE");
 		} catch (Exception e) {
 			System.out.println("uh oh");
 			System.err.println(e.getMessage());
@@ -70,11 +78,16 @@ public class Ball extends JPanel implements Projectile {
 		this.vy = vy;
 	}
 	public void step() {
+//		System.out.println("stepped" + " " + vx + " " + vy);
 		x += vx;
-		y += vy;
+		y -= vy;
+		vy -= grav;
 	}
 	public void setState(Projectile.STATE state) {
 		this.state = state;
+	}
+	public STATE getState() {
+		return this.state;
 	}
 	public void setAccelerationX(int ax) {
 		this.ax = ax;

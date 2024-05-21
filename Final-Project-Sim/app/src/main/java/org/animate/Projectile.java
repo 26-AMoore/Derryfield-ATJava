@@ -1,6 +1,9 @@
 package org.animate;
 
+import java.awt.Graphics;
+
 public interface Projectile {
+	public void draw(Graphics g);
 	public int getX();
 	public int getY();
 	public void setX(int x);
@@ -14,6 +17,8 @@ public interface Projectile {
 	public int getAccelerationX();
 	public int getAccelerationY();
 	public void step();
+	public void setState(STATE s);
+	public STATE getState();
 
 	public enum STATE {
 		IDLE,
